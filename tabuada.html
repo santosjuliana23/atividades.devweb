@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            color:rgb(253, 148, 28);
+        }
+    </style>
+    <script>
+        function mostrartabuada() {
+            document.getElementById ('valor-form').innerHTML = document.getElementById("tabuada").value;
+        }
+    </script>
+    <script>
+        function mostrartabuada() {
+            const numero = document.getElementById("tabuada").value;
+            const valorForm = document.getElementById("valor-form");
+
+            if (!isNaN(numero)) {
+                let resultadoHTML = "";
+
+                for (let i = 1; i <= 10; i++) {
+                    const resultado = numero * i;
+                    resultadoHTML += `${numero} x ${i} = ${resultado}<br>`;
+                }
+
+                valorForm.innerHTML = resultadoHTML;
+            } else {
+                valorForm.textContent = "Por favor, insira um número válido.";
+            }
+        }
+    </script>
+</head>
+<body>
+   <form>
+    <label for="tabuada"> insira o número que você deseja saber a tabuada.</label>
+    <input type="text" id="tabuada" oninput="mostrartabuada();">
+   </form>
+   <div id="valor-form"></div>
+</body>
+</html>
